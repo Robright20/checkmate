@@ -41,10 +41,10 @@ int		bishop(int pos, char *s, int size)
 	down = size - (up + 1);
 	e = 0;
 	rep = 0;
-	while (++e <= up && !isp(s[pos + e]) && !isp(s[pos - e]))
+	while (++e <= up && !isp(s[(pos - (e * size)) + e]) && !isp(s[(pos - (e * size)) - e]))
 		rep += pawn(pos, s, size, e);
 	e = 0;
-	while (++e <= down && !isp(s[pos + e]) && !isp(s[pos - e]))
+	while (++e <= down && !isp(s[(pos + (e * size)) + e]) && !isp(s[(pos + (e * size)) - e]))
 		rep += pawn(pos, s, -size, e);
 	return (rep);
 }
@@ -66,10 +66,10 @@ int		rook(int pos, char *s, int size)
 	while ((++e <= down) && !isp(s[pos + (e * (size))]))
 		rep += (s[pos + (e * (size))] == 'K');
 	e = 0;
-	while (++e < size && !isp(s[pos + e]))
+	while (++e < size - (pos % size) && !isp(s[pos + e]))
 		rep += (s[pos + e] == 'K');
 	e = 0;
-	while (++e < size && !isp(s[pos - e]))
+	while (++e < (pos % size) && !isp(s[pos - e]))
 		rep += (s[pos - e] == 'K');
 	return (rep);
 }

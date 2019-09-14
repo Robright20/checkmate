@@ -14,6 +14,7 @@
 # define CHECK_MATE_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 void	ft_putstr(char *s);
 int		ft_strlen(char *s);
