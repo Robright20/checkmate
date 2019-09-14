@@ -12,6 +12,19 @@
 
 #include "check_mate.h"
 
+int		number_of_kings(char *board)
+{
+	int		rep;
+
+	rep = 0;
+	while (*board)
+	{
+		if (*board == 'K')
+			rep++;
+	}
+	return (rep);
+}
+
 int		main(int ac, char **av)
 {
 	char	*s;
