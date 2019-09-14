@@ -41,10 +41,12 @@ int		bishop(int pos, char *s, int size)
 	down = size - (up + 1);
 	e = 0;
 	rep = 0;
-	while (++e <= up && !isp(s[(pos - (e * size)) + e]) && !isp(s[(pos - (e * size)) - e]))
+	while (++e <= up && !isp(s[(pos - (e * size)) + e])
+		&& !isp(s[(pos - (e * size)) - e]))
 		rep += pawn(pos, s, size, e);
 	e = 0;
-	while (++e <= down && !isp(s[(pos + (e * size)) + e]) && !isp(s[(pos + (e * size)) - e]))
+	while (++e <= down && !isp(s[(pos + (e * size)) + e])
+		&& !isp(s[(pos + (e * size)) - e]))
 		rep += pawn(pos, s, -size, e);
 	return (rep);
 }
