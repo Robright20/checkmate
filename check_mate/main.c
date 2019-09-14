@@ -19,7 +19,7 @@ int		number_of_kings(char *board)
 	rep = 0;
 	while (*board)
 	{
-		if (*board == 'K')
+		if (*board++ == 'K')
 			rep++;
 	}
 	return (rep);
@@ -36,6 +36,7 @@ int		main(int ac, char **av)
 	if (ac >= 2)
 	{
 		s = build(ac, av);
+		printf("%d\n", number_of_kings(s));
 		len = ft_strlen(av[1]);
 		rep = check(s, len);
 		if (rep)
